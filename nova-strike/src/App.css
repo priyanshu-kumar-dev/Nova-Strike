@@ -1010,7 +1010,7 @@ a:focus-visible {
   }
 }
 
-/* Respect accessibility preferences */
+/* Respect accessibility preferences css */
 
 @media (prefers-reduced-motion: reduce) {
   *,
