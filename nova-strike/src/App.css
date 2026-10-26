@@ -1,0 +1,1024 @@
+/* =========================================
+   NOVA STRIKE — FUTURISTIC GAMING UI
+   Premium neon / glassmorphism theme
+========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Rajdhani', sans-serif;
+  color: #f4f5ff;
+  background: #080914;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --cyan: #63efff;
+  --purple: #a96bff;
+  --pink: #ff5caa;
+  --green: #57ffbd;
+  --bg: #080914;
+  --panel: rgba(19, 21, 44, 0.76);
+  --border: rgba(255, 255, 255, 0.1);
+  --muted: #a5a8c5;
+  --font-display: 'Orbitron', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  scroll-behavior: smooth;
+  background: var(--bg);
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Main background */
+
+.nova-app {
+  --cyan: #63efff;
+  --purple: #a96bff;
+  --pink: #ff5caa;
+
+  position: relative;
+  isolation: isolate;
+  min-height: 100vh;
+  padding: 0 6%;
+  color: #f4f5ff;
+  background:
+    radial-gradient(ellipse at 12% 10%, #29205b55 0, transparent 38%),
+    radial-gradient(ellipse at 95% 45%, #40184b35 0, transparent 32%),
+    radial-gradient(ellipse at 50% 100%, #111c3b45 0, transparent 45%),
+    #080914;
+  font-family: 'Rajdhani', sans-serif;
+  overflow: clip;
+}
+
+/* Subtle background grid */
+
+.nova-app::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: '';
+  pointer-events: none;
+  opacity: 0.19;
+  background-image:
+    linear-gradient(#8e8bff12 1px, transparent 1px),
+    linear-gradient(90deg, #8e8bff12 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black, transparent 90%);
+}
+
+/* Header */
+
+.nova-header,
+.nova-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.nova-header {
+  position: relative;
+  min-height: 82px;
+  border-bottom: 1px solid #ffffff13;
+}
+
+.nova-header::after {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 130px;
+  height: 1px;
+  content: '';
+  background: linear-gradient(90deg, var(--cyan), transparent);
+  box-shadow: 0 0 12px #63efff80;
+}
+
+.nova-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  text-decoration: none;
+  font: 800 20px var(--font-display);
+  letter-spacing: 1px;
+  transition: opacity 0.2s ease;
+}
+
+.nova-logo:hover {
+  opacity: 0.85;
+}
+
+.nova-logo > span:last-child {
+  color: var(--cyan);
+  text-shadow: 0 0 18px #63efff50;
+}
+
+.logo-symbol {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  color: #080914;
+  background: linear-gradient(135deg, var(--cyan), #a5a0ff);
+  border: 1px solid #ffffff60;
+  border-radius: 11px;
+  box-shadow: 0 0 25px #63efff35;
+}
+
+.header-right,
+.battle-status,
+.battle-footer,
+.nova-footer {
+  font: 600 10px var(--font-display);
+  letter-spacing: 1px;
+  color: #a0a5c5;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.online-dot,
+.battle-status > span {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 7px;
+  height: 7px;
+  margin-right: 7px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--green);
+  animation: onlinePulse 2s ease-in-out infinite;
+}
+
+/* Main layout */
+
+.nova-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.4fr);
+  gap: clamp(30px, 5vw, 80px);
+  align-items: center;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 55px 0 65px;
+}
+
+/* Left information panel */
+
+.nova-info {
+  min-width: 0;
+  animation: riseIn 0.7s ease both;
+}
+
+.nova-eyebrow,
+.battle-heading > div > span,
+.overlay-kicker {
+  color: var(--cyan);
+  font: 600 10px var(--font-display);
+  letter-spacing: 2px;
+}
+
+.nova-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 12px;
+  background: #63efff0b;
+  border: 1px solid #63efff25;
+  border-radius: 6px;
+}
+
+.nova-info h1 {
+  margin: 22px 0;
+  font: 900 clamp(36px, 4.5vw, 66px)/1.13 var(--font-display);
+  letter-spacing: -2px;
+  overflow-wrap: anywhere;
+}
+
+.nova-info h1 span {
+  color: transparent;
+  background: linear-gradient(100deg, var(--cyan) 5%, #a5a0ff 55%, var(--purple));
+  background-clip: text;
+  -webkit-background-clip: text;
+  filter: drop-shadow(0 0 18px #63efff18);
+}
+
+.nova-description {
+  max-width: 410px;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+/* Stats cards */
+
+.nova-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 11px;
+  margin: 30px 0;
+}
+
+.nova-stat {
+  position: relative;
+  min-width: 0;
+  padding: 18px 13px;
+  overflow: hidden;
+  background: linear-gradient(145deg, #ffffff09, #ffffff03);
+  border: 1px solid #ffffff13;
+  border-radius: 13px;
+  backdrop-filter: blur(12px);
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    background 0.25s ease;
+}
+
+.nova-stat::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  content: '';
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.nova-stat:hover {
+  transform: translateY(-4px);
+  background: #ffffff0a;
+  border-color: #63efff45;
+}
+
+.nova-stat:hover::after {
+  opacity: 1;
+}
+
+.nova-stat > span,
+.health-label {
+  color: #9096b6;
+  font: 600 9px var(--font-display);
+  letter-spacing: 1px;
+}
+
+.nova-stat strong {
+  display: block;
+  margin-top: 12px;
+  color: #fff;
+  font: 700 clamp(16px, 1.8vw, 24px) var(--font-display);
+  overflow-wrap: anywhere;
+}
+
+.nova-stat:nth-child(2) strong {
+  color: var(--cyan);
+  text-shadow: 0 0 15px #63efff30;
+}
+
+/* Base health */
+
+.health-block {
+  margin-bottom: 30px;
+}
+
+.health-label {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 11px;
+}
+
+.health-label strong {
+  color: var(--green);
+}
+
+.health-track {
+  height: 8px;
+  overflow: hidden;
+  background: #ffffff10;
+  border: 1px solid #ffffff0a;
+  border-radius: 20px;
+}
+
+.health-fill {
+  position: relative;
+  height: 100%;
+  background: linear-gradient(90deg, #36d99c, var(--green), var(--cyan));
+  border-radius: inherit;
+  box-shadow: 0 0 15px #57ffbd70;
+  transition: width 0.2s ease;
+}
+
+.health-fill::after {
+  position: absolute;
+  inset: 0;
+  content: '';
+  background: linear-gradient(90deg, transparent, #ffffff80, transparent);
+  opacity: 0.35;
+  animation: healthShine 2.5s linear infinite;
+}
+
+/* Controls panel */
+
+.nova-controls,
+.mission-note {
+  padding: 21px;
+  background: linear-gradient(145deg, #ffffff09, #ffffff03);
+  border: 1px solid #ffffff12;
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+}
+
+.nova-controls h3 {
+  margin: 0 0 18px;
+  color: #f4f5ff;
+  font: 700 11px var(--font-display);
+  letter-spacing: 1px;
+}
+
+.nova-controls > div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 13px 0;
+}
+
+.nova-controls kbd,
+.overlay-foot {
+  font: 600 9px var(--font-display);
+}
+
+.nova-controls kbd {
+  display: inline-grid;
+  place-items: center;
+  min-width: 29px;
+  min-height: 28px;
+  padding: 6px;
+  color: var(--cyan);
+  text-align: center;
+  background: #63efff0b;
+  border: 1px solid #63efff35;
+  border-radius: 6px;
+  box-shadow: inset 0 -2px #63efff0b;
+}
+
+.nova-controls > div span {
+  margin-left: 9px;
+  color: #b5b8d0;
+  font-size: 15px;
+}
+
+.nova-controls p {
+  margin: 18px 0 0;
+  color: #777e9e;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.mission-note {
+  display: flex;
+  gap: 13px;
+  align-items: flex-start;
+  margin-top: 16px;
+  border-color: #a96bff38;
+  background:
+    linear-gradient(135deg, #a96bff0b, transparent),
+    #ffffff04;
+}
+
+.mission-note > span {
+  flex: 0 0 auto;
+  color: var(--purple);
+  font-size: 25px;
+  filter: drop-shadow(0 0 10px #a96bff50);
+}
+
+.mission-note p {
+  margin: 0;
+  color: #9da2c2;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.mission-note strong {
+  color: #e5d5ff;
+  font: 600 10px var(--font-display);
+}
+
+/* Battle area */
+
+.battle-column {
+  min-width: 0;
+  animation: riseIn 0.85s 0.1s ease both;
+}
+
+.battle-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.battle-heading h2 {
+  margin: 9px 0 0;
+  font: 800 clamp(17px, 2.4vw, 25px) var(--font-display);
+  letter-spacing: 1px;
+}
+
+.battle-heading h2 i {
+  color: var(--purple);
+  font-style: normal;
+}
+
+.battle-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 12px;
+  white-space: nowrap;
+  background: #57ffbd0b;
+  border: 1px solid #57ffbd30;
+  border-radius: 7px;
+}
+
+/* Canvas battlefield */
+
+.battlefield {
+  position: relative;
+  isolation: isolate;
+  height: clamp(430px, 62vh, 700px);
+  min-width: 0;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 45%, #181c3b, transparent 70%),
+    #090c1d;
+  border: 1px solid #7775ff55;
+  border-radius: 16px;
+  box-shadow:
+    0 0 50px #a96bff12,
+    0 0 0 1px #ffffff04,
+    inset 0 0 45px #a96bff0b;
+}
+
+.battlefield::before {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  content: '';
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(
+    180deg,
+    #08091420,
+    transparent 20%,
+    transparent 78%,
+    #08091445
+  );
+}
+
+.battlefield canvas {
+  position: relative;
+  z-index: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+  cursor: crosshair;
+}
+
+/* Scanline overlay */
+
+.battlefield::after {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  content: '';
+  pointer-events: none;
+  opacity: 0.14;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 3px,
+    #a5a0ff12 4px
+  );
+}
+
+/* Game start / pause overlay */
+
+.battle-overlay {
+  position: absolute;
+  z-index: 5;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: #080914b8;
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  animation: overlayFade 0.25s ease both;
+}
+
+.overlay-card {
+  width: min(100%, 400px);
+  padding: 32px 24px;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at top, #a96bff12, transparent 65%),
+    linear-gradient(145deg, #191a35f5, #101123fa);
+  border: 1px solid #a96bff70;
+  border-radius: 18px;
+  box-shadow:
+    0 25px 80px #00000050,
+    0 0 45px #a96bff12,
+    inset 0 1px #ffffff12;
+  animation: cardEnter 0.35s ease both;
+}
+
+.overlay-emblem {
+  display: grid;
+  place-items: center;
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 23px;
+  color: var(--cyan);
+  font-size: 35px;
+  background: #63efff10;
+  border: 1px solid #63efff55;
+  border-radius: 18px;
+  box-shadow: 0 0 30px #63efff15;
+}
+
+.overlay-card h2 {
+  margin: 15px 0;
+  font: 800 clamp(19px, 3vw, 26px) var(--font-display);
+  letter-spacing: 0.5px;
+}
+
+.overlay-card p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Launch button */
+
+.launch-button {
+  position: relative;
+  width: 100%;
+  margin: 14px 0 18px;
+  padding: 16px;
+  overflow: hidden;
+  color: #070a18;
+  background: linear-gradient(100deg, var(--cyan), #a5a0ff);
+  border: 1px solid #ffffff65;
+  border-radius: 9px;
+  font: 800 12px var(--font-display);
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 0 25px #63efff25;
+  transition:
+    transform 0.2s ease,
+    filter 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.launch-button::before {
+  position: absolute;
+  top: -50%;
+  left: -100%;
+  width: 60%;
+  height: 200%;
+  content: '';
+  background: linear-gradient(90deg, transparent, #ffffff80, transparent);
+  transform: skewX(-25deg);
+  transition: left 0.55s ease;
+}
+
+.launch-button:hover::before {
+  left: 150%;
+}
+
+.launch-button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+  box-shadow: 0 7px 30px #63efff35;
+}
+
+.launch-button:active {
+  transform: translateY(0) scale(0.99);
+}
+
+.launch-button span {
+  margin-left: 10px;
+}
+
+.overlay-foot {
+  color: #858bab;
+  line-height: 1.9;
+  letter-spacing: 0.5px;
+}
+
+/* Battle footer */
+
+.battle-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 3px;
+  font-size: 9px;
+}
+
+.battle-footer > span:first-child {
+  color: var(--green);
+}
+
+/* Tip card */
+
+.battle-tip {
+  padding: 15px 17px;
+  color: #a5a8c5;
+  font-size: 15px;
+  line-height: 1.7;
+  text-align: center;
+  background: #ffffff05;
+  border: 1px solid #ffffff10;
+  border-radius: 10px;
+}
+
+/* Mobile controls */
+
+.mobile-controls {
+  display: none;
+}
+
+.mobile-controls button {
+  min-width: 65px;
+  min-height: 52px;
+  padding: 10px;
+  color: var(--cyan);
+  background: linear-gradient(145deg, #1a1d3a, #111328);
+  border: 1px solid #63efff50;
+  border-radius: 12px;
+  font: 700 20px var(--font-display);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+  box-shadow: inset 0 1px #ffffff0b;
+  transition:
+    transform 0.15s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.mobile-controls button:hover {
+  background: #24274a;
+  box-shadow: 0 0 18px #63efff18;
+}
+
+.mobile-controls button:active {
+  transform: scale(0.95);
+  background: #292d50;
+}
+
+.mobile-controls .fire-button {
+  min-width: 90px;
+  color: #fff;
+  background: linear-gradient(135deg, #b52f79, #7028a7);
+  border-color: #ff5caa80;
+  font-size: 13px;
+  box-shadow: 0 0 18px #ff5caa15;
+}
+
+.mobile-controls .fire-button:active {
+  background: linear-gradient(135deg, #dc4295, #8737c3);
+}
+
+/* Footer */
+
+.nova-footer {
+  min-height: 65px;
+  border-top: 1px solid #ffffff13;
+  font-size: 9px;
+}
+
+.nova-footer b {
+  color: var(--cyan);
+}
+
+/* Animations */
+
+@keyframes onlinePulse {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px var(--green);
+  }
+  50% {
+    opacity: 0.55;
+    box-shadow: 0 0 3px var(--green);
+  }
+}
+
+@keyframes riseIn {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes overlayFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cardEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes healthShine {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(200%);
+  }
+}
+
+/* Tablet */
+
+@media (max-width: 1000px) {
+  .nova-app {
+    padding: 0 4%;
+  }
+
+  .nova-layout {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 780px;
+    gap: 42px;
+    padding-top: 40px;
+  }
+
+  .nova-info h1 {
+    font-size: clamp(38px, 7vw, 62px);
+  }
+
+  .nova-description {
+    max-width: 560px;
+  }
+
+  .battlefield {
+    height: min(72vh, 650px);
+    min-height: 450px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .nova-app {
+    padding: 0 16px;
+  }
+
+  .nova-header {
+    min-height: 68px;
+  }
+
+  .nova-logo {
+    gap: 8px;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
+
+  .logo-symbol {
+    width: 31px;
+    height: 31px;
+    border-radius: 9px;
+  }
+
+  .header-right {
+    gap: 5px;
+    font-size: 7px;
+    letter-spacing: 0;
+  }
+
+  .online-dot {
+    width: 6px;
+    height: 6px;
+    margin-right: 2px;
+  }
+
+  .nova-layout {
+    gap: 33px;
+    padding: 32px 0;
+  }
+
+  .nova-info h1 {
+    margin: 19px 0;
+    font-size: clamp(32px, 9vw, 43px);
+    letter-spacing: -1.5px;
+  }
+
+  .nova-description {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .nova-stats {
+    gap: 8px;
+    margin: 24px 0;
+  }
+
+  .nova-stat {
+    padding: 14px 9px;
+    border-radius: 10px;
+  }
+
+  .nova-stat > span {
+    font-size: 7px;
+    letter-spacing: 0.5px;
+  }
+
+  .nova-stat strong {
+    margin-top: 9px;
+    font-size: clamp(14px, 4vw, 19px);
+  }
+
+  .health-block {
+    margin-bottom: 24px;
+  }
+
+  .nova-controls,
+  .mission-note {
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  .nova-controls > div {
+    flex-wrap: wrap;
+  }
+
+  .nova-controls > div span {
+    font-size: 14px;
+  }
+
+  .battle-heading {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 13px;
+  }
+
+  .battle-heading h2 {
+    font-size: clamp(15px, 4.5vw, 21px);
+  }
+
+  .battle-status {
+    padding: 8px 9px;
+    font-size: 8px;
+  }
+
+  .battlefield {
+    height: 58vh;
+    min-height: 380px;
+    max-height: 580px;
+    border-radius: 13px;
+  }
+
+  .overlay-card {
+    padding: 24px 17px;
+    border-radius: 15px;
+  }
+
+  .overlay-emblem {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 18px;
+    font-size: 30px;
+  }
+
+  .overlay-foot {
+    font-size: 8px;
+  }
+
+  .mobile-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 11px;
+    margin: 12px 0 15px;
+  }
+
+  .mobile-controls button {
+    min-width: 58px;
+    min-height: 50px;
+    border-radius: 11px;
+  }
+
+  .mobile-controls .fire-button {
+    min-width: 86px;
+  }
+
+  .battle-footer {
+    gap: 10px;
+    padding: 13px 2px;
+    font-size: 7px;
+    letter-spacing: 0.3px;
+  }
+
+  .battle-tip {
+    padding: 13px;
+    font-size: 14px;
+  }
+
+  .nova-footer {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 20px;
+    padding: 18px 0;
+    font-size: 8px;
+  }
+
+  .nova-footer span {
+    text-align: center;
+  }
+}
+
+/* Short screens and landscape phones */
+
+@media (max-height: 600px) and (min-width: 601px) {
+  .nova-layout {
+    padding-top: 30px;
+    padding-bottom: 35px;
+  }
+
+  .battlefield {
+    height: 75vh;
+    min-height: 340px;
+  }
+}
+
+/* Respect accessibility preferences */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

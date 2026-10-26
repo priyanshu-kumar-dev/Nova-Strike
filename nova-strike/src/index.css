@@ -1,0 +1,218 @@
+/* =========================================
+   NOVA STRIKE — GLOBAL STYLES
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+:root {
+  font-family: 'Rajdhani', sans-serif;
+  color: #f4f5ff;
+  background: #080914;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --color-bg: #080914;
+  --color-text: #f4f5ff;
+  --color-muted: #a5a8c5;
+  --color-cyan: #63efff;
+  --color-purple: #a96bff;
+  --color-pink: #ff5caa;
+  --color-green: #57ffbd;
+
+  --font-body: 'Rajdhani', sans-serif;
+  --font-heading: 'Orbitron', sans-serif;
+
+  --transition-fast: 160ms ease;
+  --transition-normal: 240ms ease;
+}
+
+/* Reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  min-height: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
+  background: var(--color-bg);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      ellipse at 12% 0%,
+      rgba(99, 239, 255, 0.035),
+      transparent 35%
+    ),
+    var(--color-bg);
+
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Root containers */
+
+#root {
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+/* Media */
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+}
+
+img,
+video {
+  height: auto;
+}
+
+/* Form controls */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+a {
+  color: var(--color-cyan);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a:hover {
+  color: #b4f8ff;
+}
+
+/* Text selection */
+
+::selection {
+  color: #080914;
+  background: var(--color-cyan);
+  text-shadow: none;
+}
+
+::-moz-selection {
+  color: #080914;
+  background: var(--color-cyan);
+}
+
+/* Scrollbar */
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #48416e #080914;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080914;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    #63efff85,
+    #a96bff85
+  );
+  border: 2px solid #080914;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    #63efff,
+    #a96bff
+  );
+}
+
+/* Keyboard accessibility */
+
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-cyan);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Consistent interactive transitions */
+
+button,
+a,
+input,
+textarea,
+select {
+  transition:
+    color var(--transition-fast),
+    border-color var(--transition-fast),
+    background-color var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+/* Prevent unwanted text selection on game controls */
+
+.battlefield,
+.mobile-controls,
+.launch-button,
+.logo-symbol {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Smooth anchor navigation */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
